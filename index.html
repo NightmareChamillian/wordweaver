@@ -13,6 +13,32 @@
   </head>
 
   <body>
+
+    <br>
+    <center>
+    
+    <h1>Made by <a href="https://oneinamillian.neocities.org/">1inaMillian</a></h1><br><br>
+
+    <div id = "mainholder">
+    <br>
+    <p>Hi and welcome to wordweaver. This is a mini project using HTML, CSS, and p5.js to create an
+      <a href = "https://en.wikipedia.org/wiki/Elementary_cellular_automaton">elmentary cellular automata</a>. It will convert your text input to color by partitioning the 
+      character data. After the first "strip", it'll apply an iterative rule to your pattern,
+      forming a higher-order behavior. What is that iterative rule? how does it work? uhhhh idk lol
+    </p>
+
+    <br>
+    Please no weird characters ;~;<br><br>
+    <input type="text" id="textInput" value="Text goes here"><br><br>
+    <button onclick="doWeave()">Iterate</button> <br>
+
+    <div id = textOut>
+    <p id="feedback">  </p>
+    </div>
+    <br>
+    <!--Actually do our sketch stuff-->
     <script src="sketch.js"></script>
+    </div>
+    </center>
   </body>
 </html>

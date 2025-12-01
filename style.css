@@ -1,8 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap');
+
 html, body {
-  margin: 0;
+
+  margin: 3rem 10rem 10rem;
   padding: 0;
+  font-family: "Fragment Mono", monospace;
+  line-height: 1.3rem;
+
 }
+
+#mainholder{
+  padding: 1rem 5rem 1rem;
+  background-color: #A2D0E5;
+  border-color:#238489;
+  border-style:dotted;
+}
+
+#textOut{
+  background-color: #238489;
+}
+
 
 canvas {
   display: block;
+}
+a:link {
+  color: #15A575;
+}
+
+a:active {
+  color: #FFFFFF;
+  }
+  
+a:visited {
+ color: #01585E; 
+}
+
+a:hover{
+ color: #00BA94; 
 }
