@@ -22,7 +22,9 @@ html, body {
 
 
 canvas {
+  background-color:#AABBAA;
   display: block;
+  
 }
 a:link {
   color: #15A575;
