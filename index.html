@@ -7,9 +7,9 @@
     <title>Sketch</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
-
+    <!--Get the scripts chuggging along-->
     <script src="libraries/p5.min.js"></script>
-    <script src="libraries/p5.sound.min.js"></script>
+    <!-- <script src="libraries/p5.sound.min.js"></script> -->
     <script src = "sketch.js"> </script>
 
   </head>
@@ -30,11 +30,69 @@
     </p>
 
     <br>
-    Please note that it relies on UTF-16 char codes, and all scripts run clientside, so if you do anything
-    super weird, your browser is going to be at risk. Will use the first 15 chracters!<br><br>
+    Please note that 1) this uses UTF-16 codes, and 2) all script run clientside. if you are not a computer nerd you do not have to worry about
+    what this means but if you are a nerd you have been warned. Will use only the first 15 chracters!<br><br>
     <input type="text" id="textInput" value="Text here!"><br><br>
     
-    <button onclick='doWeave()'>Begin</button> <br>
+    <button onclick='doWeave()'>Begin</button> <br> <br>
+
+    <!-- no reason not to let the user pick and choose how the colors turn out-->
+    <div id = "settingsHolder"> <br>
+      <h3><u>Settings:</u></h2>
+       <p>Since the actual colors displayed are arbitrary, there's no reason why you can't customize them to your liking! 
+        Each value is a multiplier to the character code. Don't be afraid to experiment with different spacings and value sizes!
+
+       </p>
+        Value multiplier for red: <div><input type="number" id="inputR" min="1" max="1000" value="406" step = "3"/> <br></div>
+        Value multiplier for green: <div><input type="number" id="inputG" min="1" max="1000" value="540" step = "3"/><br></div>
+        Value multiplier for blue: <div><input type="number" id="inputB" min="1" max="1000" value="1061" step = "3"/><br></div>
+        <br><br>
+
+       <div id = "settingPart"><label for="parChoices">Generational rule</label>
+        <select name = "parChoices" id = "parChoices">
+          <option value = "mid">Middle</option>
+          <option value = "lef">Left</option>
+          <option value = "rit">Right</option>       
+          <option value = "lefRit">Left + Right</option>
+          <option value = "mirA">Split apart</option>
+          <option value = "mirT">Split together</option>
+          <option value = "jig">Jiggle</option>
+          <option value = "zig">Zig zag</option>
+          <option value = "mod2">Group by 2s</option>
+          <option value = "ran">Random</option>
+          <option value = "ran2">Random 2</option>
+          
+          <option value = "midL">Middle + Left</option>
+          <option value = "midR">Middle + right</option>
+          
+          <option value = "all">All 3</option>
+        </select>
+      </div>
+      
+      <!-- decided i didnt like this part and also time constraints sooo-->
+      <!--<div id = "settingPart"><label for="genChoices">Generation Rule (No Op if only 1 color)</label>
+        <select name = "genChoices" id = "genChoices">
+          <option value = "nop"> No operation (rightmost val) </option>
+          <option value = "avg"> Average </option>
+          <option value = "lar"> Largest of values</option>
+          <option value = "smal"> Smallest of Values</option>
+          <option value = "xor"> Boolean XOR </option>
+          <option value = "or">Boolean OR </option>
+          <option value = "add">Additive </option>
+          <option value = "sub">Subtractive</option>
+          <option value = "mult">Multiplicative </option>
+          <option value = "ran">Random from parents </option>
+          <option value = "ran">Semirandom LERP </option>
+        </select>
+      </div> -->
+
+      <div id = "settingPart">
+        <input type="checkbox" id="procWhiteCheck" name="procWhiteCheck">
+        <label for="procWhiteCheck"> Exclude spaces from generation rule? </label><br>
+      </div>
+        
+    
+    </div>
     
     <div id = textOut>
     <p id="feedback">  </p>
