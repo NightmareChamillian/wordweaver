@@ -276,10 +276,36 @@ function getPares(pareMode,ind){
       break;
     case "mod2":
       if(ind % 2 == 0){
-        getElemCol(ind + 1, pareSelection);
+        getElemCol(ind, pareSelection);
+        getElemCol(ind - 1, pareSelection);
       } else {
-        getElemCol(ind -1, pareSelection);
+        getElemCol(ind, pareSelection);
+        getElemCol(ind+1, pareSelection);
       }
+     break;
+    case "chkr":
+     if(ind % 2 == 0){
+       getElemCol(ind + 1, pareSelection);
+     } else {
+       getElemCol(ind -1, pareSelection);
+     }
+    break;
+    case "mod3":
+     if(ind % 3 == 0){
+       getElemCol(ind, pareSelection);
+       getElemCol(ind+1, pareSelection);
+       getElemCol(ind+2, pareSelection);
+     } else if(ind % 3 == 1){
+       getElemCol(ind, pareSelection);
+       getElemCol(ind+1, pareSelection);
+       getElemCol(ind-1, pareSelection);
+     }
+      else{
+        getElemCol(ind, pareSelection);
+        getElemCol(ind-1, pareSelection);
+        getElemCol(ind-2, pareSelection);
+      }
+    break;
     default: //should never   happen but safety is always good
       getElemCol(ind, pareSelection);
 

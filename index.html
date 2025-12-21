@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sketch</title>
+    <title>Wordweaver</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="weaveStyle.css">
     <!--Get the scripts chuggging along-->
-    <script src="libraries/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script> 
     <!-- <script src="libraries/p5.sound.min.js"></script> -->
     <script src = "sketch.js"> </script>
 
@@ -23,49 +23,59 @@
 
     <div id = "mainholder">
     <br>
-    <p>Hi and welcome to wordweaver. This is a mini project using HTML, CSS, and p5.js to create an
+    <p>Hi and welcome to wordweaver. This is a mini project using HTML, CSS, and p5.js to create patterns sort of similar to
       <a href = "https://en.wikipedia.org/wiki/Elementary_cellular_automaton">elmentary cellular automata</a>. It will convert your text input to color by partitioning the 
-      character data. After the first "strip", it'll apply an iterative rule to your pattern,
-      forming a higher-order behavior. What is that iterative rule? how does it work? uhhhh idk lol
-    </p>
+      character data. After the first "strip", it'll apply an iterative rule to your pattern based on the selection parameter you have set. 
+      You can change the selected rule to mix and match the patterns at a line-by-line basis to create more complex combinations.
+      
+      <br><div>
+        <img src = "bleed.png" height ="300"> <img src = "averageAndZag.png" height ="300"> <img src = "checkerBoard.png" height ="300">
+      </div>
+    
 
     <br>
-    Please note that 1) this uses UTF-16 codes, and 2) all script run clientside. if you are not a computer nerd you do not have to worry about
-    what this means but if you are a nerd you have been warned. Will use only the first 15 chracters!<br><br>
-    <input type="text" id="textInput" value="Text here!"><br><br>
+    
+      Note that colors and starter text will only change if you reload the webpage.<br><br>
+    Furthermore, please note that the text input relies on UTF-16, and the script runs clientside. It's seriously unlikely for anything bad to happen if you put a ton of characters in or weird symbols, but do consider yourself warned. Will use only the first 15 chracters!<br><br>
+    <input type="text" id="textInput" value="Sample text :)"><br><br>
     
     <button onclick='doWeave()'>Begin</button> <br> <br>
 
     <!-- no reason not to let the user pick and choose how the colors turn out-->
     <div id = "settingsHolder"> <br>
-      <h3><u>Settings:</u></h2>
+      <h3><u>Settings:</u></h3>
        <p>Since the actual colors displayed are arbitrary, there's no reason why you can't customize them to your liking! 
-        Each value is a multiplier to the character code. Don't be afraid to experiment with different spacings and value sizes!
+        Each value is a multiplier to the character code. An even distribution will make colors random, a tight distribution will make colors similar, and a skewed distribution will create a color schema. <br><br>
+        Don't be afraid to experiment with different spacings and value sizes!
 
        </p>
         Value multiplier for red: <div><input type="number" id="inputR" min="1" max="1000" value="406" step = "3"/> <br></div>
         Value multiplier for green: <div><input type="number" id="inputG" min="1" max="1000" value="540" step = "3"/><br></div>
-        Value multiplier for blue: <div><input type="number" id="inputB" min="1" max="1000" value="1061" step = "3"/><br></div>
+        Value multiplier for blue: <div><input type="number" id="inputB" min="1" max="1000" value="783" step = "3"/><br></div>
         <br><br>
 
        <div id = "settingPart"><label for="parChoices">Generational rule</label>
         <select name = "parChoices" id = "parChoices">
           <option value = "mid">Middle</option>
-          <option value = "lef">Left</option>
-          <option value = "rit">Right</option>       
+          <option value = "mod2">Group by 2s</option> 
+          <option value = "mod3">Group by 3s</option> 
           <option value = "lefRit">Left + Right</option>
           <option value = "mirA">Split apart</option>
           <option value = "mirT">Split together</option>
           <option value = "jig">Jiggle</option>
           <option value = "zig">Zig zag</option>
-          <option value = "mod2">Group by 2s</option>
+          <option value = "chkr">Checker</option>
           <option value = "ran">Random</option>
           <option value = "ran2">Random 2</option>
-          
+
+          <option value = "lef">Left</option>
+          <option value = "rit">Right</option>  
           <option value = "midL">Middle + Left</option>
           <option value = "midR">Middle + right</option>
           
           <option value = "all">All 3</option>
+          
+    
         </select>
       </div>
       
